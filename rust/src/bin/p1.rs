@@ -1,5 +1,5 @@
 fn get_input() -> &'static str {
-  return "forward 5
+    return "forward 5
 down 5
 forward 8
 up 3
@@ -10,7 +10,7 @@ forward 2";
 #[derive(Debug)]
 struct Point {
     x: i32,
-    y: i32
+    y: i32,
 }
 
 fn parse_line(line: &str) -> Point {
@@ -18,23 +18,24 @@ fn parse_line(line: &str) -> Point {
     let amount = str::parse::<i32>(amount).expect("expect number");
 
     if dir == "forward" {
-        return Point{ x: amount, y: 0};
+        return Point { x: amount, y: 0 };
     } else if dir == "up" {
-        return Point {x: 0, y: -amount};
+        return Point { x: 0, y: -amount };
     }
 
     return Point { x: 0, y: amount };
 }
 
 fn main() {
-    let result = get_input()
-    .lines()
-        .map(|x| parse_line(x))
-        .fold(Point{x: 0, y: 0}, | mut acc, point| {
-            acc.x += point.x;
-            acc.y += point.y;
-            return acc;
-        });
+    let result =
+        get_input()
+            .lines()
+            .map(|x| parse_line(x))
+            .fold(Point { x: 0, y: 0 }, |mut acc, point| {
+                acc.x += point.x;
+                acc.y += point.y;
+                return acc;
+            });
 
     print!("{:?}", result);
 }
