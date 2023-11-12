@@ -23,5 +23,5 @@ export default function getOpts() {
     name: "pwd",
     alias: "p",
     type: String
-  }])
+  }]) as Opts;
 }
