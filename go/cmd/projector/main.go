@@ -12,5 +12,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("unable to get opts: %v", err)
 	}
-  fmt.Printf("opts: %+v", opts)
+
+  config, err := projector.NewConfig(opts)
+	if err != nil {
+		log.Fatalf("unable to get config: %v", err)
+	}
+
+  fmt.Printf("opts: %+v\n", opts)
+  fmt.Printf("config: %+v\n", config)
 }
